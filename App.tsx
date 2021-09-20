@@ -1,11 +1,11 @@
 import React from 'react';
-import { ScreenOne } from './src/screens/Introduction'
+import { Introduction } from './src/screens/Introduction'
 import { StatusBar } from 'react-native';
 
 export default function App() {
   return (<>
     <StatusBar hidden={true} />
-    <ScreenOne />
+    <Introduction title="Organize seus" title2="campeonatos" subtitle="Jogue campeonatos" subtitle2="e faça amizade" />
 
   </>
   );
