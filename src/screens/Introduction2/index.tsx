@@ -15,11 +15,11 @@ interface IntroductionType {
     subtitle2: string,
 }
 
-export function Introduction(props: IntroductionType) {
+export function Introduction2(props: IntroductionType) {
     const navigation = useNavigation()
     function handleIntroduction() {
         // @ts-ignore
-        navigation.navigate("Introduction2");
+        navigation.navigate("Home");
     }
 
     const onpress = () => {
@@ -34,12 +34,12 @@ export function Introduction(props: IntroductionType) {
             />
             <View >
                 <Text style={styles.title}>
-                    {`Organize seus\n`}
-                    {`campeonatos\n`}
+                    {`${props.title}\n`}
+                    {`${props.title2}\n`}
                 </Text>
                 <Text style={styles.subtitle}>
-                    {`Jogue campeonato\n`}
-                    {`e faça amizade\n`}
+                    {`${props.subtitle}\n`}
+                    {`${props.subtitle2}\n`}
                 </Text>
             </View>
             <View style={styles.buttonContainer}>
