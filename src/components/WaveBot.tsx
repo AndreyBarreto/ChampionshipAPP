@@ -5,7 +5,7 @@ import Svg, { Path } from 'react-native-svg';
 export default function WavyHeaderbot() {
     return (
         <View>
-            <View style={{ backgroundColor: '#80B2FF', height: 140,marginTop:80 }}>
+            <View style={{ backgroundColor: '#80B2FF', height: 140,marginBottom:-90 }}>
                 <Svg
                     height="60%"
                     width="100%"

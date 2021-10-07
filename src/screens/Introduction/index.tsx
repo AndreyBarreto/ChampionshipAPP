@@ -1,66 +1,79 @@
 
-import React from 'react';
-import { View, Text, Image, Button, TouchableHighlight } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, Button } from 'react-native';
 import WavyHeader from '../../components/WaveTop'
 import WavyHeaderbot from '../../components/WaveBot'
 import { styles } from './style'
 import { theme } from "../../global/styles/theme";
 import { useNavigation } from '@react-navigation/native';
+import AppIntroSlider from 'react-native-app-intro-slider';
+import batata from "../../../assets/tennisChar.png"
 
 
-interface IntroductionType {
+interface Islide {
+    key: string,
     title: string,
     title2: string,
     subtitle: string,
     subtitle2: string,
+    image: string
 }
 
-export function Introduction(props: IntroductionType) {
-    const navigation = useNavigation()
-    function handleIntroduction() {
-        // @ts-ignore
-        navigation.navigate("Introduction2");
-    }
+const slides: Array<Islide> = [{
+    key: "Soccer",
+    title: "Organize seus",
+    title2: "campeonatos",
+    subtitle: "Jogue campeonato",
+    subtitle2: "e faça amizade",
+    image: require("../../../assets/futebolChar.png")
+},
+{
+    key: "voley",
+    title: "Organize seus",
+    title2: "campeonatos",
+    subtitle: "Jogue campeonato",
+    subtitle2: "e faça amizade",
+    image: require("../../../assets/tennisChar.png")
+}, {
+    key: "basket",
+    title: "Organize seus",
+    title2: "campeonatos",
+    subtitle: "Jogue campeonato",
+    subtitle2: "e faça amizade",
+    image: require("../../../assets/volleyChar.png")
+}]
 
-    const onpress = () => {
-        console.log('oxi')
-    }
-    return (
-        <View style={styles.container}>
-            <WavyHeader />
+export function Introduction() {
+
+    function renderSlides({ item }) {
+        return (<>
             <Image
                 style={styles.img}
-                source={require('../../../assets/futebolChar.png')}
+                source={item.image}
             />
-            <View >
-                <Text style={styles.title}>
-                    {`Organize seus\n`}
-                    {`campeonatos\n`}
-                </Text>
-                <Text style={styles.subtitle}>
-                    {`Jogue campeonato\n`}
-                    {`e faça amizade\n`}
-                </Text>
-            </View>
-            <View style={styles.buttonContainer}>
-                <TouchableHighlight
-                    style={styles.button}
-                    onPress={onpress}
-                >
-                    <Text style={styles.buttonTitle}>Login</Text>
-                </TouchableHighlight>
-                <TouchableHighlight
-                    style={styles.button}
-                    onPress={handleIntroduction}
-                >
-                    <Text style={styles.buttonTitle}>Próximo</Text>
-                </TouchableHighlight>
-            </View>
+            <Text style={styles.title}>
+                {`${item.title}\n`}
+                {`${item.title2}\n`}
+            </Text>
+            <Text style={styles.subtitle}>
+                {`${item.subtitle}\n`}
+                {`${item.subtitle2}\n`}
+            </Text>
+        </>
+        )
+    }
 
-            <WavyHeaderbot />
-
-
-
-        </View>
-    );
+    return (<>
+        <WavyHeader />
+        <AppIntroSlider
+            renderItem={renderSlides}
+            data={slides}
+            activeDotStyle={{
+                backgroundColor: "#009CFF",
+                width: 40
+            }}
+        />
+        <WavyHeaderbot />
+    </>
+    )
 }
