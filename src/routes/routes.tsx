@@ -17,17 +17,17 @@ export function AuthRoutes() {
             }}
         >
             <Screen
+                name="Introduction"
+                component={Introduction}
+
+            />
+            <Screen
                 name="Login"
                 component={Login}
             />
             <Screen
                 name="Championships"
                 component={Championships}
-            />
-            <Screen
-                name="Introduction"
-                component={Introduction}
-
             />
 
             <Screen

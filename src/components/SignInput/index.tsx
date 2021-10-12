@@ -23,7 +23,7 @@ export default function SignIn({
                 name={icon}
                 color='#517fa4' />
             <TextInput style={styles.Text}
-                underlineColorAndroid='transparent'></TextInput>
+                ></TextInput>
         </View >
 
     )

@@ -1,13 +1,11 @@
 
-import React, { useState } from 'react';
-import { View, Text, Image, Button } from 'react-native';
+import React from 'react';
+import { Text, Image } from 'react-native';
 import WavyHeader from '../../components/WaveTop'
 import WavyHeaderbot from '../../components/WaveBot'
 import { styles } from './style'
-import { theme } from "../../global/styles/theme";
 import { useNavigation } from '@react-navigation/native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import batata from "../../../assets/tennisChar.png"
 
 
 interface Islide {
@@ -45,6 +43,8 @@ const slides: Array<Islide> = [{
 
 export function Introduction() {
 
+    const navigation = useNavigation()
+
     function renderSlides({ item }) {
         return (<>
             <Image
@@ -63,6 +63,11 @@ export function Introduction() {
         )
     }
 
+    const print = () => {
+        // @ts-ignore
+        navigation.navigate("Login");
+    }
+
     return (<>
         <WavyHeader />
         <AppIntroSlider
@@ -72,6 +77,7 @@ export function Introduction() {
                 backgroundColor: "#009CFF",
                 width: 40
             }}
+            onDone={print}
         />
         <WavyHeaderbot />
     </>
