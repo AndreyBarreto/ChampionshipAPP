@@ -43,9 +43,12 @@ const slides: Array<Islide> = [{
 
 export function Introduction() {
 
+
     const navigation = useNavigation()
 
-    function renderSlides({ item }) {
+
+    function renderSlides({item}) {
+        console.log(item)
         return (<>
             <Image
                 style={styles.img}
@@ -63,7 +66,8 @@ export function Introduction() {
         )
     }
 
-    const print = () => {
+    const goToLogin = () => {
+
         // @ts-ignore
         navigation.navigate("Login");
     }
@@ -77,7 +81,7 @@ export function Introduction() {
                 backgroundColor: "#009CFF",
                 width: 40
             }}
-            onDone={print}
+            onDone={goToLogin}
         />
         <WavyHeaderbot />
     </>
