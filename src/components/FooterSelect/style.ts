@@ -5,10 +5,9 @@ import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
     backgroud: {
-        backgroundColor: '#68a0cf',
-        height: 100,
+        height: 70,
         borderRadius: 15,
-        padding: 15,
-        margin: 25
+        borderColor:"red",
+        borderWidth:2
     }
 })
